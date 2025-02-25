@@ -1,14 +1,15 @@
 import { View, type ViewProps } from 'react-native';
-
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { twMerge } from 'tailwind-merge';
 
 export type ThemedViewProps = ViewProps & {
-  lightColor?: string;
-  darkColor?: string;
+  className?: string;
 };
 
-export function ThemedView({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+const ThemedView = ({ style, className, ...otherProps }: ThemedViewProps) => {
+  return (
+    <View style={style} className={twMerge('bg-white dark:bg-black', className)} {...otherProps} />
+  );
+};
 
-  return <View style={[{ backgroundColor }, style]} {...otherProps} />;
-}
+export default ThemedView;
+

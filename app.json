@@ -32,6 +32,13 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Poppins-Regular.ttf"],
+          "assetBundlePatterns": ["**/*"]
+        }
       ]
     ],
     "experiments": {
@@ -39,3 +46,4 @@
     }
   }
 }
+
