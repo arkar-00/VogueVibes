@@ -27,7 +27,7 @@ function FloatingInput({
   const { colorScheme } = useColorScheme();
   const [isTextHidden, setIsTextHidden] = useState(secureTextEntry);
   const [isFocused, setIsFocused] = useState(false);
-  const labelPosition = useSharedValue(value.length > 0 || isFocused ? -20 : 0);
+  const labelPosition = useSharedValue(value?.length > 0 || isFocused ? -20 : 0);
 
   const labelStyle = useAnimatedStyle(
     () => ({
@@ -42,7 +42,7 @@ function FloatingInput({
   );
 
   useEffect(() => {
-    labelPosition.value = withTiming(value.length > 0 || isFocused ? -20 : 0, { duration: 150 });
+    labelPosition.value = withTiming(value?.length > 0 || isFocused ? -20 : 0, { duration: 150 });
   }, [value, isFocused]);
 
   const handleFocus = useCallback(() => setIsFocused(true), []);
@@ -97,7 +97,8 @@ export default memo(FloatingInput);
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    position: 'relative',
+    minHeight:62,
+    marginTop: 20,
   },
   inputWrapper: {
     flexDirection: 'row',

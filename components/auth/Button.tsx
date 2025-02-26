@@ -20,7 +20,7 @@ const Button = ({ currentIndex, length, flatListRef, onFinish }: Props) => {
   // Animated button style
   const rnBtnStyle = useAnimatedStyle(
     () => ({
-      width: withSpring(currentIndex.value === length - 1 ? 140 : 48),
+      width: withTiming(currentIndex.value === length - 1 ? 140 : 48),
       height: 48,
     }),
     [currentIndex.value, length]
